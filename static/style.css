@@ -1,0 +1,238 @@
+/* Palet warna */
+:root {
+    --dark-blue: #0B2545;
+    --light-blue: #1D3557;
+    --metal-gray: #A8A8A8;
+    --buttercream: #D1CFC9;
+    --moonlit-gray: #A8A9AD;
+    --white: #F8F9FA;
+    --primary: #0b1957;
+    --secondary: #9ECCFA;
+    --accent: #E6D8C7;
+    --table-even: #f4f1eb;
+    --table-odd: #e8e6e3;
+    --table-hover: #d6d4d0;
+}
+
+/* Reset dasar */
+body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background-color: var(--light-blue);
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, var(--light-blue), var(--dark-blue));
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: var(--white);
+    background-color: var(--metal-gray);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Fitur */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: var(--dark-blue);
+}
+
+.feature {
+    text-align: center;
+    width: 30%;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--light-blue);
+}
+
+/* Deteksi Spam */
+.deteksi-spam {
+    color: var(--primary);
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.deteksi-spam h2 {
+    color: var(--primary);
+}
+
+.deteksi-spam input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid var(--secondary);
+    border-radius: 5px;
+}
+
+.deteksi-spam button {
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deteksi-spam button:hover {
+    background: var(--secondary);
+}
+
+/* Hasil Deteksi */
+.hasil {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* Histori Container */
+.history-container {
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Judul histori */
+.history-container h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* Tombol di atas tabel */
+.history-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.history-controls button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.history-controls button:first-child {
+    background-color: #d9534f;
+    color: white;
+}
+
+.history-controls button:first-child:hover {
+    background-color: #c9302c;
+}
+
+.history-controls button:last-child {
+    background-color: #24476C;
+    color: white;
+}
+
+.history-controls button:last-child:hover {
+    background-color: #9ECCFA;
+}
+
+/* Tabel histori */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Header tabel */
+.history-table thead {
+    background-color: var(--light-blue);
+    color: var(--white);
+}
+
+/* Sel tabel */
+.history-table th, .history-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--light-blue);
+    text-align: left;
+}
+
+.history-table th {
+    text-transform: uppercase;
+}
+
+/* Warna latar selang-seling */
+.history-table tbody tr:nth-child(even) {
+    background-color: var(--moonlit-gray);
+}
+
+.history-table tbody tr:nth-child(odd) {
+    background-color: var(--buttercream);
+}
+
+.history-table tbody tr:hover {
+    background-color: var(--table-hover);
+}
+
+/* Kolom Pesan agar bisa scroll jika teks terlalu panjang */
+.history-table .message {
+    max-width: 300px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}

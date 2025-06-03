@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistem Deteksi Spam</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    </head>
+    
+<body>
+    <header>
+        <nav>
+            <div class="logo">DetectSpam</div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="#deteksi">Fitur</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="{{ url_for('history') }}">Histori</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Amankan Inbox dari Spam</h1>
+        <p>Deteksi dan lindungi email & SMS Anda dari pesan mencurigakan dengan AI canggih.</p>
+    </section>
+
+    <section id="deteksi" class="deteksi-spam">
+        <h2>🛡️ Cek Pesan Spam</h2>
+        <p>Masukkan pesan yang ingin Anda cek apakah itu spam atau tidak.</p>
+        <form method="POST">
+            <textarea id="message" name="message" rows="4" cols="50">{{ user_input }}</textarea><br>
+            <button type="submit">Deteksi</button>
+        </form>
+        
+    
+        {% if prediction %}
+            <p class="hasil">Hasil: <strong>{{ prediction }}</strong></p>
+        {% endif %}
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <h2>🔍 Deteksi Real-Time</h2>
+            <p>Menganalisis pesan dalam hitungan detik.</p>
+        </div>
+        <div class="feature">
+            <h2>🤖 AI-Powered</h2>
+            <p>Teknologi cerdas untuk akurasi tinggi.</p>
+        </div>
+        <div class="feature">
+            <h2>🔒 Aman & Terpercaya</h2>
+            <p>Privasi data Anda adalah prioritas utama.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SpamShield. Semua Hak Dilindungi.</p>
+    </footer>
+</body>
+</html>

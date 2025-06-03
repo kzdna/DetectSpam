@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histori Deteksi Spam</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">DetectSpam</div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/history">history</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="history">
+        <h2>📜 Histori Deteksi Spam</h2>
+
+        <div class="history-controls">
+            <form method="get" style="display: inline-block;">
+                <button onclick="deleteAllHistory()">Hapus Semua</button>
+                <label for="sort">Urutkan:</label>
+                <select name="sort" onchange="this.form.submit()">
+                    <option value="desc" {% if sort == 'desc' %}selected{% endif %}>📅 Terbaru</option>
+                    <option value="asc" {% if sort == 'asc' %}selected{% endif %}>🕰️ Terlama</option>
+                </select>
+            </form>
+            
+            <button onclick="window.location.href='/export_json'">Download JSON</button>
+        </div>
+
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Pesan</th>
+                    <th>Hasil</th>
+                    <th>Waktu</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in history %}
+                <tr>
+                    <td class="message">{{ entry.message }}</td>
+                    <td class="result">{{ entry.result }}</td>
+                    <td class="timestamp">{{ entry.timestamp }}</td>
+                    <td><button class="delete-btn" data-index="{{ loop.index0 }}">Hapus</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        function deleteAllHistory() {
+            fetch("/delete_history", { method: "POST" })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    location.reload();
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".delete-btn").forEach(button => {
+                button.addEventListener("click", function() {
+                    let index = this.getAttribute("data-index");
+                    fetch("/delete_entry", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: "index=" + index
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.message);
+                        location.reload();
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
