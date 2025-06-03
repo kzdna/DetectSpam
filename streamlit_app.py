@@ -38,7 +38,7 @@ def save_history(history):
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="Deteksi Spam SMS", layout="centered")
-st.title("📱 Deteksi Spam SMS Menggunakan SVM")
+st.title("📱 Sistem Deteksi Spam Menggunakan SVM pada Pesan Bahasa Indonesia ")
 
 user_input = st.text_input("Masukkan pesan SMS:")
 if st.button("Deteksi"):
