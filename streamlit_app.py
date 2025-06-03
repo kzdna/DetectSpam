@@ -37,7 +37,7 @@ def save_history(history):
         json.dump(history, file)
 
 # --- Streamlit UI ---
-st.set_page_config(page_title="Deteksi Spam SMS", layout="centered")
+st.set_page_config(page_title="Deteksi Spam SMS Menggunakan SVM", layout="centered")
 st.title("📱 Deteksi Spam SMS")
 
 user_input = st.text_input("Masukkan pesan SMS:")
